@@ -41,6 +41,7 @@ class ProviderAnalysis:
     highlight_position_status: str
     confidence: Dict[str, float]
     availability: Dict[str, str]
+    provider_trace: Dict[str, Any] = field(default_factory=dict)
     warnings: List[str] = field(default_factory=list)
     raw_outputs: Dict[str, Any] = field(default_factory=dict)
 

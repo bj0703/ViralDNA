@@ -1,0 +1,300 @@
+{
+  "style_id": "style_travel_001",
+  "style_name": "高级感旅行转场",
+  "type_label": "旅游转场",
+  "aliases": [
+    "氛围感旅行剪辑",
+    "丝滑旅行卡点转场",
+    "高级感旅拍短剪"
+  ],
+  "target_duration_range": [
+    17,
+    19
+  ],
+  "aspect_ratio": "9:16",
+  "core_formula": "1秒冲击钩子+2秒场景铺垫+两段5秒丝滑转场高光+5秒情绪收尾",
+  "suitable_materials": [
+    "旅行日出日落延时",
+    "地标建筑全景",
+    "海边海浪慢动作",
+    "街头人文特写",
+    "交通工具移动第一视角",
+    "当地美食特写"
+  ],
+  "unsuitable_materials": [
+    "严重模糊抖动废片",
+    "无意义大头自拍",
+    "光线过曝过暗低质素材",
+    "和旅行场景完全无关的素材"
+  ],
+  "rhythm_structure": {
+    "overall_pace": "前紧后缓卡点精准",
+    "avg_shot_duration_seconds": 3.6,
+    "shot_switch_pacing": "每2-4秒切换一次，转场点严格对齐音乐重拍",
+    "highlight_position_ratio": [
+      0.2,
+      0.7
+    ],
+    "pace_changes_description": "开头1秒快切抓眼，中段高光段切换频率随音乐鼓点提升，结尾放缓节奏留情绪空间"
+  },
+  "structural_slots": [
+    {
+      "slot_id": "slot_001",
+      "role": "hook",
+      "duration": 1,
+      "creative_function": "1秒抓牢用户注意力",
+      "information_function": "第一时间展示旅行最具冲击力的核心画面",
+      "required_visual_type": [
+        "逆光人物剪影",
+        "日出跳变瞬间",
+        "海浪拍岸大特写",
+        "烟花炸开瞬间"
+      ],
+      "required_motion": [
+        "画面快速推进",
+        "光线瞬间变亮",
+        "物体快速入镜"
+      ],
+      "shot_size": [
+        "大特写",
+        "全画幅全景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体白色带10%透明度黑边",
+        "position": "屏幕中下1/6安全区",
+        "semantic_role": "开场冲击引导文案",
+        "caption_formula_hint": "示例：「出发的第一秒」"
+      },
+      "audio_sync": {
+        "beat_position": "first_strong_beat",
+        "sfx": "短促风声呼啸音效"
+      },
+      "transition_out": "whip_pan",
+      "importance": "最高",
+      "match_priority": [
+        "高对比度画面",
+        "动态感强素材",
+        "色彩饱和度高的素材"
+      ],
+      "copy_risk": "避免使用全网重复度超过30%的同款网红开场素材"
+    },
+    {
+      "slot_id": "slot_002",
+      "role": "context",
+      "duration": 2,
+      "creative_function": "快速交代场景背景",
+      "information_function": "明确告知观众当前所处的旅行目的地环境",
+      "required_visual_type": [
+        "目的地街景全景",
+        "酒店窗外风景",
+        "机场落地画面",
+        "高铁站出站画面"
+      ],
+      "required_motion": [
+        "缓慢平移",
+        "固定机位延时",
+        "小幅度推镜"
+      ],
+      "shot_size": [
+        "中景",
+        "大全景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "细体白色",
+        "position": "屏幕中下1/6安全区",
+        "semantic_role": "地点说明文案",
+        "caption_formula_hint": "示例：「抵达大理的第一天」"
+      },
+      "audio_sync": {
+        "beat_position": "weak_beat",
+        "sfx": "轻量旅行环境白噪音"
+      },
+      "transition_out": "zoom_cut",
+      "importance": "中",
+      "match_priority": [
+        "带明确地标标识的清晰画面",
+        "光线柔和的户外素材"
+      ],
+      "copy_risk": "不要直接搬运他人拍摄的同角度地标版权素材"
+    },
+    {
+      "slot_id": "slot_003",
+      "role": "highlight_01",
+      "duration": 5,
+      "creative_function": "第一次丝滑转场秀",
+      "information_function": "展示第一个核心旅行景点的多维度画面",
+      "required_visual_type": [
+        "山景风光",
+        "湖景水面",
+        "人文打卡点",
+        "古建特写"
+      ],
+      "required_motion": [
+        "镜头跟随物体移动",
+        "前景遮挡运镜",
+        "同方向移动衔接"
+      ],
+      "shot_size": [
+        "全景",
+        "中景",
+        "局部特写"
+      ],
+      "caption_requirement": {
+        "need_caption": false,
+        "style": "",
+        "position": "",
+        "semantic_role": "",
+        "caption_formula_hint": ""
+      },
+      "audio_sync": {
+        "beat_position": "transition_downbeat",
+        "sfx": "转场唰音效"
+      },
+      "transition_out": "dissolve",
+      "importance": "高",
+      "match_priority": [
+        "有相同颜色/相同物体可衔接的成对素材",
+        "运动方向一致的素材组"
+      ],
+      "copy_risk": "避免使用平台已泛滥的同款转场素材组合"
+    },
+    {
+      "slot_id": "slot_004",
+      "role": "highlight_02",
+      "duration": 5,
+      "creative_function": "第二次丝滑转场秀",
+      "information_function": "展示第二个核心旅行体验的多维度画面",
+      "required_visual_type": [
+        "当地美食特写",
+        "游乐项目画面",
+        "日落延时",
+        "星空画面"
+      ],
+      "required_motion": [
+        "旋转运镜",
+        "快速拉镜",
+        "动态延伸运镜"
+      ],
+      "shot_size": [
+        "特写",
+        "大远景"
+      ],
+      "caption_requirement": {
+        "need_caption": false,
+        "style": "",
+        "position": "",
+        "semantic_role": "",
+        "caption_formula_hint": ""
+      },
+      "audio_sync": {
+        "beat_position": "bar_change",
+        "sfx": "转场闪光音效"
+      },
+      "transition_out": "blur",
+      "importance": "高",
+      "match_priority": [
+        "有动态延伸感的素材",
+        "色彩层次丰富的画面"
+      ],
+      "copy_risk": "不要直接套用他人完全相同的转场顺序"
+    },
+    {
+      "slot_id": "slot_005",
+      "role": "ending",
+      "duration": 5,
+      "creative_function": "收尾留情绪记忆点",
+      "information_function": "传递旅行美好感受，引导用户互动评论",
+      "required_visual_type": [
+        "人物背影看风景",
+        "旅行合照",
+        "城市夜景全景",
+        "公路延伸画面"
+      ],
+      "required_motion": [
+        "缓慢拉远",
+        "画面渐暗",
+        "静止固定机位"
+      ],
+      "shot_size": [
+        "全景",
+        "中远景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体暖白色",
+        "position": "屏幕中下1/5安全区",
+        "semantic_role": "互动引导文案",
+        "caption_formula_hint": "示例：「你最想去哪旅行？评论区说」"
+      },
+      "audio_sync": {
+        "beat_position": "phrase_release",
+        "sfx": "轻缓收尾钢琴尾音"
+      },
+      "transition_out": "fade_out",
+      "importance": "高",
+      "match_priority": [
+        "带情绪氛围感的慢镜头素材",
+        "画面留白充足的素材"
+      ],
+      "copy_risk": "不要使用烂大街的旅行结尾模板画面"
+    }
+  ],
+  "caption_style_template": {
+    "subtitle_density": "仅关键节点配字幕，全程不超过3条",
+    "font_style": "无衬线粗体，字重700",
+    "keyword_highlight": true,
+    "animation": "淡入淡出无多余动效",
+    "safe_area_preference": "避开顶部1/4和底部1/10的系统UI区域"
+  },
+  "transition_style_template": {
+    "main_transition_types": [
+      "whip_pan",
+      "zoom_cut",
+      "dissolve",
+      "blur"
+    ],
+    "usage_rule": "所有转场必须精准卡音乐重拍，转场前后画面要有共通元素（同色/同形/同运动方向）",
+    "fallback_transition_types": [
+      "cut",
+      "flash_white"
+    ]
+  },
+  "packaging_style_template": {
+    "stickers": [],
+    "cover_style": "居中放置核心高光画面，顶部加醒目文字标题",
+    "color_tone": "低饱和莫兰迪色调，统一叠加10%暗角",
+    "visual_elements": "无多余花哨装饰元素，仅保留画面本身质感"
+  },
+  "transfer_rules": {
+    "must_keep": [
+      "卡点转场节奏",
+      "9:16画幅",
+      "18秒总时长"
+    ],
+    "can_adapt": [
+      "单slot时长上下浮动0.5秒",
+      "字幕文案内容根据素材调整"
+    ],
+    "must_not_copy": [
+      "完全照搬他人的素材拼接顺序",
+      "使用无授权侵权素材"
+    ]
+  },
+  "fallback_strategy": [
+    {
+      "problem": "没有符合转场衔接要求的成对素材",
+      "solution": "直接使用cut硬切，匹配音乐重拍即可"
+    },
+    {
+      "problem": "hook段找不到高冲击力开场素材",
+      "solution": "直接用flash_white闪白切入第一帧画面"
+    },
+    {
+      "problem": "总素材时长不足18秒",
+      "solution": "将高光段的素材各延长1秒，总时长凑到18秒"
+    }
+  ],
+  "embedding_text": "高级感旅行转场 18秒抖音小红书9:16 卡点丝滑旅行剪辑 旅游vlog短平快模板 旅拍高级感剪辑"
+}

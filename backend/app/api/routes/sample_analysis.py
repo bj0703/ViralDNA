@@ -27,15 +27,15 @@ router = APIRouter(prefix="/sample-analysis", tags=["sample-analysis"])
 UPLOAD_ROOT = Path("backend/data/uploads")
 
 
-def _parse_notes(notes_json: Optional[str]) -> Dict[str, str]:
-    if not notes_json:
+def _parse_text_mapping(raw_json: Optional[str], *, field_name: str) -> Dict[str, str]:
+    if not raw_json:
         return {}
     try:
-        parsed = json.loads(notes_json)
+        parsed = json.loads(raw_json)
     except json.JSONDecodeError as exc:
-        raise api_error(400, "INVALID_NOTES_JSON", f"notes_json 不是合法 JSON: {exc}") from exc
+        raise api_error(400, f"INVALID_{field_name.upper()}_JSON", f"{field_name} 不是合法 JSON: {exc}") from exc
     if not isinstance(parsed, dict):
-        raise api_error(400, "INVALID_NOTES_MAPPING", "notes_json 必须是文件名到说明文本的对象映射。")
+        raise api_error(400, f"INVALID_{field_name.upper()}_MAPPING", f"{field_name} 必须是文件名到说明文本的对象映射。")
     return {str(key): str(value) for key, value in parsed.items()}
 
 
@@ -44,8 +44,10 @@ async def create_job(
     files: List[UploadFile] = File(...),
     session_name: Optional[str] = Form(default=None),
     notes_json: Optional[str] = Form(default=None),
+    analysis_instruction_json: Optional[str] = Form(default=None),
 ) -> CreateSampleAnalysisResponse:
-    notes_by_name = _parse_notes(notes_json)
+    notes_by_name = _parse_text_mapping(notes_json, field_name="notes_json")
+    instructions_by_name = _parse_text_mapping(analysis_instruction_json, field_name="analysis_instruction_json")
     job_folder = UPLOAD_ROOT / str(uuid4())
     job_folder.mkdir(parents=True, exist_ok=True)
 
@@ -64,15 +66,19 @@ async def create_job(
                 storage_path=str(storage_path),
                 content_type=file.content_type,
                 notes=notes_by_name.get(original_filename),
+                analysis_instruction=instructions_by_name.get(original_filename) or notes_by_name.get(original_filename),
             )
         )
 
-    job = sample_analysis_service.create_job(
-        CreateJobPayload(
-            session_name=session_name,
-            uploads=uploads,
+    try:
+        job = sample_analysis_service.create_job(
+            CreateJobPayload(
+                session_name=session_name,
+                uploads=uploads,
+            )
         )
-    )
+    except RuntimeError as exc:
+        raise api_error(502, "VIDEO_ANALYSIS_FAILED", str(exc)) from exc
     return CreateSampleAnalysisResponse(
         job_id=job.job_id,
         session_id=job.session_id,

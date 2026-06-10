@@ -68,10 +68,24 @@ class HeuristicVideoAnalysisProvider(VideoAnalysisProvider):
             highlight_position_status="available" if highlight_position_seconds is not None else "estimated",
             confidence=confidence,
             availability=availability,
+            provider_trace={
+                "requested_provider": "heuristic-local",
+                "actual_provider": "heuristic-local",
+                "input_modality": "text_context_only",
+                "used_real_video_input": False,
+                "used_fallback": False,
+                "fallback_reason": None,
+                "model_configured": False,
+                "analysis_instruction": upload.analysis_instruction,
+                "known_limitations": [
+                    "当前结果基于本地启发式规则，不是模型视频理解结果。",
+                ],
+            },
             warnings=warnings,
             raw_outputs={
                 "provider": "heuristic-local",
                 "notes_provided": bool(upload.notes),
+                "analysis_instruction": upload.analysis_instruction,
                 "filename_tokens": self._tokenize_filename(upload.original_filename),
             },
         )

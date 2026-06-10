@@ -63,6 +63,7 @@ class SampleAnalysisResult:
     pace_structure: Dict[str, Any]
     confidence: Dict[str, float]
     availability: Dict[str, str]
+    provider_trace: Dict[str, Any]
     raw_outputs: Dict[str, Any]
     warnings: List[str] = field(default_factory=list)
     timeline_segments: List[Dict[str, Any]] = field(default_factory=list)
@@ -78,6 +79,7 @@ class SampleAnalysisResult:
             "pace_structure": self.pace_structure,
             "confidence": self.confidence,
             "availability": self.availability,
+            "provider_trace": self.provider_trace,
             "raw_outputs": self.raw_outputs,
             "warnings": self.warnings,
             "timeline_segments": self.timeline_segments,
@@ -117,6 +119,7 @@ class SampleUpload:
     storage_path: str
     content_type: Optional[str]
     notes: Optional[str] = None
+    analysis_instruction: Optional[str] = None
 
 
 @dataclass

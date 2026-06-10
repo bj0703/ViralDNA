@@ -1,0 +1,286 @@
+{
+  "style_id": "style_talking_001",
+  "style_name": "口播带货",
+  "type_label": "口播带货",
+  "aliases": [
+    "好物分享口播",
+    "短视频带货口播",
+    "真人种草口播"
+  ],
+  "target_duration_range": [
+    23,
+    27
+  ],
+  "aspect_ratio": "9:16",
+  "core_formula": "3秒痛点钩子+场景共情铺垫+2个核心卖点展示+即时下单引导",
+  "suitable_materials": [
+    "真人出镜口播素材",
+    "产品特写素材",
+    "用户使用场景实拍素材",
+    "产品功效对比素材",
+    "价格弹窗素材"
+  ],
+  "unsuitable_materials": [
+    "无关联风景素材",
+    "长段无剪辑 raw 素材",
+    "低清模糊素材",
+    "超过10秒的长镜头素材"
+  ],
+  "rhythm_structure": {
+    "overall_pace": "快节奏紧凑",
+    "avg_shot_duration_seconds": 3,
+    "shot_switch_pacing": "每2-4秒切换一次镜头",
+    "highlight_position_ratio": [
+      0.3,
+      0.7
+    ],
+    "pace_changes_description": "开头3秒极速抓眼，中间卖点部分节奏稍稳，结尾引导部分再次提速"
+  },
+  "structural_slots": [
+    {
+      "slot_id": "slot_hook",
+      "role": "开头钩子",
+      "duration": 3,
+      "creative_function": "3秒内抓住用户停留注意力",
+      "information_function": "抛出用户普遍存在的高频痛点",
+      "required_visual_type": [
+        "真人近景口播素材",
+        "夸张表情实拍素材"
+      ],
+      "required_motion": [
+        "人物快速指向镜头",
+        "头部快速动作"
+      ],
+      "shot_size": [
+        "近景",
+        "特写"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体醒目黄字",
+        "position": "屏幕上半区居中",
+        "semantic_role": "痛点提问",
+        "caption_formula_hint": "你是不是[痛点描述]？"
+      },
+      "audio_sync": {
+        "beat_position": "first_strong_beat",
+        "sfx": "惊讶提示音"
+      },
+      "transition_out": "whip_pan",
+      "importance": "最高",
+      "match_priority": [
+        "带夸张表情的口播近景",
+        "普通口播近景"
+      ],
+      "copy_risk": "低"
+    },
+    {
+      "slot_id": "slot_context",
+      "role": "痛点铺垫",
+      "duration": 5,
+      "creative_function": "强化用户共情心理",
+      "information_function": "具象化痛点发生的日常场景",
+      "required_visual_type": [
+        "用户日常痛点场景素材",
+        "口播讲解素材"
+      ],
+      "required_motion": [
+        "人物手势比划场景",
+        "镜头缓慢移动展示场景"
+      ],
+      "shot_size": [
+        "中景",
+        "近景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "常规白字带10%透明度黑边",
+        "position": "屏幕下半区1/3处",
+        "semantic_role": "场景描述",
+        "caption_formula_hint": "每次[场景动作]都[痛点结果]太烦了"
+      },
+      "audio_sync": {
+        "beat_position": "bar_change",
+        "sfx": "叹气音效"
+      },
+      "transition_out": "cut",
+      "importance": "高",
+      "match_priority": [
+        "痛点场景实拍+口播组合",
+        "纯口播讲解"
+      ],
+      "copy_risk": "低"
+    },
+    {
+      "slot_id": "slot_highlight_01",
+      "role": "第一个核心卖点展示",
+      "duration": 6,
+      "creative_function": "直观展示产品核心优势",
+      "information_function": "讲解第一个核心功效",
+      "required_visual_type": [
+        "产品功能演示素材",
+        "产品特写素材"
+      ],
+      "required_motion": [
+        "镜头快速推到产品功能部位",
+        "操作产品展示效果"
+      ],
+      "shot_size": [
+        "特写",
+        "大特写"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体红底白字",
+        "position": "屏幕居中",
+        "semantic_role": "核心卖点输出",
+        "caption_formula_hint": "这款产品的[卖点1]直接解决问题"
+      },
+      "audio_sync": {
+        "beat_position": "transition_downbeat",
+        "sfx": "叮的提示音效"
+      },
+      "transition_out": "zoom_cut",
+      "importance": "高",
+      "match_priority": [
+        "产品功能演示实拍",
+        "产品细节特写"
+      ],
+      "copy_risk": "中"
+    },
+    {
+      "slot_id": "slot_highlight_02",
+      "role": "第二个核心卖点展示",
+      "duration": 6,
+      "creative_function": "补充产品高性价比优势",
+      "information_function": "讲解专属价格/福利优势",
+      "required_visual_type": [
+        "价格弹窗素材",
+        "用户好评截图素材"
+      ],
+      "required_motion": [
+        "价格数字弹出动画",
+        "手指指向价格区域"
+      ],
+      "shot_size": [
+        "中景",
+        "特写"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体黄字",
+        "position": "屏幕下半区居中",
+        "semantic_role": "福利告知",
+        "caption_formula_hint": "现在下单只要[价格]还送赠品"
+      },
+      "audio_sync": {
+        "beat_position": "phrase_release",
+        "sfx": "降价提示音效"
+      },
+      "transition_out": "flash_white",
+      "importance": "高",
+      "match_priority": [
+        "价格弹窗+口播组合",
+        "纯口播讲福利"
+      ],
+      "copy_risk": "中"
+    },
+    {
+      "slot_id": "slot_ending",
+      "role": "结尾转化引导",
+      "duration": 5,
+      "creative_function": "催促用户即时下单",
+      "information_function": "明确可执行的行动指令",
+      "required_visual_type": [
+        "真人手指指向购物车素材",
+        "产品摆拍素材"
+      ],
+      "required_motion": [
+        "人物快速指向屏幕下方购物车位置",
+        "镜头拉远展示完整产品"
+      ],
+      "shot_size": [
+        "近景",
+        "全景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体红底白字",
+        "position": "屏幕底部安全区上方",
+        "semantic_role": "行动指令",
+        "caption_formula_hint": "点下方小黄车赶紧抢"
+      },
+      "audio_sync": {
+        "beat_position": "weak_beat",
+        "sfx": "倒计时滴答音效"
+      },
+      "transition_out": "fade_out",
+      "importance": "最高",
+      "match_priority": [
+        "指向购物车的口播素材",
+        "产品全景摆拍"
+      ],
+      "copy_risk": "低"
+    }
+  ],
+  "caption_style_template": {
+    "subtitle_density": "每句口播对应1条字幕，无冗余内容",
+    "font_style": "粗体无衬线字体",
+    "keyword_highlight": true,
+    "animation": "打字机弹出效果",
+    "safe_area_preference": "避开屏幕底部10%购物车区域"
+  },
+  "transition_style_template": {
+    "main_transition_types": [
+      "whip_pan",
+      "cut",
+      "zoom_cut",
+      "flash_white",
+      "fade_out"
+    ],
+    "usage_rule": "钩子转铺垫用甩镜，卖点之间用快速切/变焦切，福利转结尾用闪白，最后淡出",
+    "fallback_transition_types": [
+      "dissolve",
+      "blur"
+    ]
+  },
+  "packaging_style_template": {
+    "stickers": [
+      "限时角标贴纸",
+      "热销爆单贴纸"
+    ],
+    "cover_style": "真人表情+大字痛点标题",
+    "color_tone": "高饱和明亮色调",
+    "visual_elements": "全程无多余遮挡，产品占画面比例不低于30%"
+  },
+  "transfer_rules": {
+    "must_keep": [
+      "5个结构节点的时间占比",
+      "口播内容的卖点顺序",
+      "结尾转化引导"
+    ],
+    "can_adapt": [
+      "镜头切换速度",
+      "字幕颜色微调"
+    ],
+    "must_not_copy": [
+      "原视频的口播台词一字不差照搬",
+      "原视频的人物肖像"
+    ]
+  },
+  "fallback_strategy": [
+    {
+      "problem": "缺少对应卖点的产品演示素材",
+      "solution": "用口播人物近景素材替代，同步弹出对应卖点的文字贴纸"
+    },
+    {
+      "problem": "没有符合要求的钩子夸张表情素材",
+      "solution": "直接用普通口播近景开头，搭配大字体痛点字幕叠加在画面顶部"
+    },
+    {
+      "problem": "缺少价格弹窗素材",
+      "solution": "后期直接在画面对应位置生成动态价格数字字幕"
+    }
+  ],
+  "embedding_text": "抖音小红书25秒9:16口播带货，3秒痛点钩子，场景共情，双卖点展示，结尾引导下单，快节奏高转化好物分享短视频模板"
+}

@@ -1,8 +1,13 @@
 # Secrets and local environment
 .env
-.env.*
-!.env.example
-!frontend/.env.example
+logs/
+data/
+backend/data/
+样例/
+素材/
+node_modules/
+__pycache__/
+*.pyc
 
 # Python
 __pycache__/

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import shutil
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -45,3 +46,35 @@ def load_ark_chat_config() -> ArkChatConfig:
             "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
         ).strip(),
     )
+
+
+@dataclass
+class FFmpegConfig:
+    ffmpeg_path: str
+
+    @property
+    def is_available(self) -> bool:
+        if self.ffmpeg_path:
+            return Path(self.ffmpeg_path).exists()
+        return shutil.which("ffmpeg") is not None
+
+
+def load_ffmpeg_config() -> FFmpegConfig:
+    custom_path = os.getenv("FFMPEG_PATH", "").strip()
+    return FFmpegConfig(ffmpeg_path=custom_path)
+
+
+@dataclass
+class RedisConfig:
+    redis_url: str
+    redis_enabled: bool
+
+    @property
+    def is_available(self) -> bool:
+        return bool(self.redis_url and self.redis_url != "disabled")
+
+
+def load_redis_config() -> RedisConfig:
+    url = os.getenv("REDIS_URL", "disabled").strip()
+    enabled = url != "disabled"
+    return RedisConfig(redis_url=url, redis_enabled=enabled)

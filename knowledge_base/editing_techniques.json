@@ -1,0 +1,211 @@
+[
+  {
+    "technique_id": "tech_trans_001",
+    "name": "硬切转场",
+    "category": "transition",
+    "compatible_styles": [
+      "快节奏探店",
+      "剧情爽片",
+      "美妆测评",
+      "运动剪辑"
+    ],
+    "preconditions": "前后两个镜头动作逻辑连贯，无空帧，素材帧率≥24fps",
+    "execution_rule": "两个镜头首尾直接拼接，无任何过渡特效，前后帧动作匹配误差≤0.1s",
+    "fallback": "动作匹配误差超过0.2s时替换为0.1s白闪转场",
+    "embedding_text": "无特效硬切转场，动作帧精准对齐直接拼接，适配所有快节奏短视频"
+  },
+  {
+    "technique_id": "tech_trans_002",
+    "name": "甩 pan 转场",
+    "category": "transition",
+    "compatible_styles": [
+      "旅行vlog",
+      "街头探店",
+      "运动剪辑"
+    ],
+    "preconditions": "前镜头末尾有快速横向/纵向甩动动作，后镜头开头有同方向同速度的甩动动作",
+    "execution_rule": "截取前镜头最后0.3s甩动片段，后镜头开头0.3s甩动片段拼接，运动方向完全对齐",
+    "fallback": "找不到匹配甩动片段时替换为0.4s高斯模糊转场",
+    "embedding_text": "同方向同速度甩动镜头拼接的甩 pan 转场，适配户外旅行街头内容"
+  },
+  {
+    "technique_id": "tech_trans_003",
+    "name": "缩放跳切转场",
+    "category": "transition",
+    "compatible_styles": [
+      "美食测评",
+      "好物开箱",
+      "悬疑剧情"
+    ],
+    "preconditions": "前镜头末尾是主体特写放大状态，后镜头开头是同主体不同角度的放大特写",
+    "execution_rule": "前镜头最后0.2s做1.2倍中心放大，直接切到后镜头开头放大状态，无过渡",
+    "fallback": "找不到匹配放大帧时替换为普通硬切转场",
+    "embedding_text": "主体放大状态下直接跳转不同角度特写的缩放跳切转场，适配好物美食特写内容"
+  },
+  {
+    "technique_id": "tech_trans_004",
+    "name": "模糊转场",
+    "category": "transition",
+    "compatible_styles": [
+      "情感vlog",
+      "日常记录",
+      "怀旧内容"
+    ],
+    "preconditions": "前后两个镜头色调亮度差异≤30%，无剧烈动作冲突",
+    "execution_rule": "前后镜头各取0.2s片段，叠加高斯模糊从0过渡到1再过渡到0，总转场时长0.4s",
+    "fallback": "色调亮度差异超过30%时替换为0.1s黑闪转场",
+    "embedding_text": "0.4s时长高斯模糊渐变过渡转场，适配舒缓日常情感类短视频"
+  },
+  {
+    "technique_id": "tech_trans_005",
+    "name": "黑闪转场",
+    "category": "transition",
+    "compatible_styles": [
+      "爽感剧情",
+      "游戏剪辑",
+      "运动高光"
+    ],
+    "preconditions": "前镜头末尾有强动作爆发点，后镜头开头是动作结果画面",
+    "execution_rule": "在两个镜头中间插入0.1s纯黑帧，前后无透明度渐变，直接硬切黑帧",
+    "fallback": "找不到动作爆发点时替换为普通硬切转场",
+    "embedding_text": "插入0.1s纯黑帧的黑闪转场，适配强动作爆发高光内容"
+  },
+  {
+    "technique_id": "tech_trans_006",
+    "name": "白闪转场",
+    "category": "transition",
+    "compatible_styles": [
+      "美妆试色",
+      "好物开箱",
+      "创意卡点"
+    ],
+    "preconditions": "前后镜头亮度均值≥50，无大面积暗部区域",
+    "execution_rule": "两个镜头中间插入0.1s纯白帧，直接硬切无渐变",
+    "fallback": "画面亮度均值低于40时替换为黑闪转场",
+    "embedding_text": "插入0.1s纯白帧的白闪转场，适配亮调好物美妆卡点内容"
+  },
+  {
+    "technique_id": "tech_cap_001",
+    "name": "底部固定字幕",
+    "category": "caption",
+    "compatible_styles": [
+      "知识科普",
+      "剧情解说",
+      "美食教程"
+    ],
+    "preconditions": "视频画面底部15%区域无核心主体遮挡，字幕内容长度≤15字",
+    "execution_rule": "字幕放置在画面底部距离下边缘5%位置，字号占画面高度4%，白色字体加1px黑色描边，停留时长等于对应语音时长",
+    "fallback": "底部区域有遮挡时移到画面顶部10%位置",
+    "embedding_text": "底部固定位置白色黑边字幕，适配科普教程解说类短视频"
+  },
+  {
+    "technique_id": "tech_cap_002",
+    "name": "动态弹出关键词字幕",
+    "category": "caption",
+    "compatible_styles": [
+      "好物测评",
+      "直播切片",
+      "带货短视频"
+    ],
+    "preconditions": "对应语音提到核心卖点关键词，单段关键词时长≤2s",
+    "execution_rule": "关键词从画面中心向外放大弹出，字号占画面高度6%，搭配对应颜色高亮，停留到关键词语音结束后0.3s消失",
+    "fallback": "弹出位置遮挡主体时改为静态底部字幕",
+    "embedding_text": "核心卖点关键词动态放大弹出高亮字幕，适配带货测评短视频"
+  },
+  {
+    "technique_id": "tech_cap_003",
+    "name": "逐字跳动卡点字幕",
+    "category": "caption",
+    "compatible_styles": [
+      "音乐卡点",
+      "歌词MV",
+      "搞笑段子"
+    ],
+    "preconditions": "背景音有明确鼓点节拍，节拍间隔≥0.3s",
+    "execution_rule": "每个字对应一个鼓点出现，字体随鼓点轻微放大1.1倍再回弹，颜色随节拍切换",
+    "fallback": "鼓点识别失败时替换为普通底部字幕",
+    "embedding_text": "逐字跟随鼓点跳动出现的卡点字幕，适配音乐卡点搞笑内容"
+  },
+  {
+    "technique_id": "tech_cap_004",
+    "name": "对话气泡字幕",
+    "category": "caption",
+    "compatible_styles": [
+      "剧情短剧",
+      "vlog日常",
+      "萌宠内容"
+    ],
+    "preconditions": "画面中有人物/萌宠主体在对应位置说话",
+    "execution_rule": "字幕放置在对应主体头部上方10%位置，搭配圆角半透明白色气泡背景，字号占画面高度3.5%，气泡宽度适配字幕长度",
+    "fallback": "主体上方无空间时移到画面底部",
+    "embedding_text": "跟随说话主体位置的对话气泡字幕，适配短剧萌宠日常内容"
+  },
+  {
+    "technique_id": "tech_rhy_001",
+    "name": "鼓点卡点剪辑",
+    "category": "rhythm",
+    "compatible_styles": [
+      "运动高光",
+      "好物开箱",
+      "舞蹈剪辑"
+    ],
+    "preconditions": "背景音鼓点密度≥每2秒1次，素材总时长≥30s",
+    "execution_rule": "所有镜头切换点完全对齐背景音鼓点，单镜头最长时长不超过2个鼓点间隔",
+    "fallback": "鼓点识别失败时按每2s切一次镜头执行",
+    "embedding_text": "所有镜头切换点完全对齐背景音鼓点的卡点剪辑，适配高光舞蹈开箱内容"
+  },
+  {
+    "technique_id": "tech_rhy_002",
+    "name": "快慢节奏交替剪辑",
+    "category": "rhythm",
+    "compatible_styles": [
+      "剧情短片",
+      "旅行vlog",
+      "美食制作"
+    ],
+    "preconditions": "素材包含快动作片段和慢动作片段两类，总时长≥60s",
+    "execution_rule": "每3个快节奏短镜头（时长≤1s）之后插入1个慢节奏长镜头（时长≥3s），快慢交替循环",
+    "fallback": "没有足够慢镜头时统一按2s单镜头时长剪辑",
+    "embedding_text": "3个快切短镜头搭配1个长慢镜头交替的节奏剪辑，适配剧情旅行美食内容"
+  },
+  {
+    "technique_id": "tech_rhy_003",
+    "name": "情绪递进节奏剪辑",
+    "category": "rhythm",
+    "compatible_styles": [
+      "情感故事",
+      "励志短片",
+      "好物种草"
+    ],
+    "preconditions": "视频有明确的情绪上升线，从铺垫到高潮",
+    "execution_rule": "铺垫阶段单镜头时长≥4s，中段单镜头时长2-3s，高潮阶段单镜头时长≤1s，镜头时长随情绪推进逐步缩短",
+    "fallback": "没有明确情绪线时替换为快慢交替节奏剪辑",
+    "embedding_text": "镜头时长随情绪推进逐步缩短的递进节奏剪辑，适配情感励志种草内容"
+  },
+  {
+    "technique_id": "tech_pkg_001",
+    "name": "开头3s钩子包装",
+    "category": "packaging",
+    "compatible_styles": [
+      "所有竖屏短视频"
+    ],
+    "preconditions": "有核心冲突/福利/高光开头素材",
+    "execution_rule": "视频前3s直接放最高光核心内容，搭配大字号醒目引导字幕，叠加高音量提示音效，无任何前置铺垫",
+    "fallback": "找不到高光素材时直接放核心卖点字幕作为开头",
+    "embedding_text": "前3s直接展示高光内容搭配醒目字幕音效的钩子包装，适配所有竖屏短视频"
+  },
+  {
+    "technique_id": "tech_pkg_002",
+    "name": "片尾信息卡包装",
+    "category": "packaging",
+    "compatible_styles": [
+      "知识科普",
+      "账号引流",
+      "带货短视频"
+    ],
+    "preconditions": "视频最后有引导关注/下单/评论的需求",
+    "execution_rule": "视频最后2s插入固定信息卡，包含账号头像、引导文字、对应跳转按钮图标，信息卡透明度100%无遮挡",
+    "fallback": "总时长不足2s时把信息卡叠加在最后一帧停留1s",
+    "embedding_text": "片尾2s固定展示账号引导信息的信息卡包装，适配引流带货科普内容"
+  }
+]

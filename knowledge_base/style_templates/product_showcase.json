@@ -1,0 +1,276 @@
+{
+  "style_id": "style_product_001",
+  "style_name": "产品展示",
+  "type_label": "产品展示",
+  "aliases": [
+    "好物展示",
+    "好物分享",
+    "商品展示",
+    "电商带货",
+    "种草产品短视频",
+    "15秒产品带货",
+    "商品好物分享"
+  ],
+  "target_duration_range": [
+    14,
+    16
+  ],
+  "aspect_ratio": "9:16",
+  "core_formula": "3秒冲击钩子+2秒场景铺垫+3.5秒卖点1展示+3.5秒卖点2展示+3秒转化引导",
+  "suitable_materials": [
+    "产品特写素材",
+    "产品使用场景实拍素材",
+    "产品功能演示素材",
+    "产品细节实拍素材",
+    "手持产品展示素材"
+  ],
+  "unsuitable_materials": [
+    "和产品无关的风景素材",
+    "单镜头时长超过6秒的长镜头素材",
+    "模糊失焦的产品素材",
+    "带第三方水印的非授权素材"
+  ],
+  "rhythm_structure": {
+    "overall_pace": "快节奏紧凑",
+    "avg_shot_duration_seconds": 3,
+    "shot_switch_pacing": "每2-4秒切换一次镜头",
+    "highlight_position_ratio": [
+      0.3,
+      0.7
+    ],
+    "pace_changes_description": "开头钩子快切抓注意力，中间卖点匀速清晰展示，结尾稍慢留足转化引导停留时间"
+  },
+  "structural_slots": [
+    {
+      "slot_id": "slot_001",
+      "role": "hook",
+      "duration": 3,
+      "creative_function": "3秒内抓住用户注意力避免划走",
+      "information_function": "直接展示产品最有冲击力的外观/效果",
+      "required_visual_type": [
+        "产品开箱瞬间素材",
+        "产品最亮眼的外观特写素材",
+        "产品使用前后对比冲击画面"
+      ],
+      "required_motion": [
+        "镜头快速推近产品",
+        "产品突然入画运动"
+      ],
+      "shot_size": [
+        "大特写",
+        "特写"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体醒目黄字",
+        "position": "屏幕上半1/3处",
+        "semantic_role": "抛出核心利益点",
+        "caption_formula_hint": "「这个XX居然这么好用！」"
+      },
+      "audio_sync": {
+        "beat_position": "first_strong_beat",
+        "sfx": "短促的叮的提示音"
+      },
+      "transition_out": "zoom_cut",
+      "importance": "最高",
+      "match_priority": [
+        "产品冲击画面>开箱画面>普通外观画面"
+      ],
+      "copy_risk": "低"
+    },
+    {
+      "slot_id": "slot_002",
+      "role": "context",
+      "duration": 2,
+      "creative_function": "快速铺垫使用场景",
+      "information_function": "告诉用户产品适用的日常场景",
+      "required_visual_type": [
+        "产品放置在对应使用场景的实拍素材",
+        "用户日常遇到痛点的画面素材"
+      ],
+      "required_motion": [
+        "镜头缓慢扫过场景"
+      ],
+      "shot_size": [
+        "中景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "常规白字",
+        "position": "屏幕中部",
+        "semantic_role": "点明使用场景",
+        "caption_formula_hint": "「平时居家/出门都能用」"
+      },
+      "audio_sync": {
+        "beat_position": "weak_beat",
+        "sfx": "轻量环境背景音"
+      },
+      "transition_out": "cut",
+      "importance": "中",
+      "match_priority": [
+        "场景实拍>痛点画面>空场景画面"
+      ],
+      "copy_risk": "低"
+    },
+    {
+      "slot_id": "slot_003",
+      "role": "highlight_01",
+      "duration": 3.5,
+      "creative_function": "展示第一个核心卖点",
+      "information_function": "清晰传递产品第一个核心优势",
+      "required_visual_type": [
+        "产品第一个功能的演示素材",
+        "产品细节实拍素材"
+      ],
+      "required_motion": [
+        "镜头跟随产品功能动作移动"
+      ],
+      "shot_size": [
+        "特写",
+        "近景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体高亮红字",
+        "position": "屏幕下半1/3处",
+        "semantic_role": "说明第一个卖点",
+        "caption_formula_hint": "「卖点1：XXX 超好用」"
+      },
+      "audio_sync": {
+        "beat_position": "bar_change",
+        "sfx": "对应功能的拟声音效"
+      },
+      "transition_out": "whip_pan",
+      "importance": "高",
+      "match_priority": [
+        "功能演示素材>细节特写>普通展示画面"
+      ],
+      "copy_risk": "低"
+    },
+    {
+      "slot_id": "slot_004",
+      "role": "highlight_02",
+      "duration": 3.5,
+      "creative_function": "展示第二个核心卖点",
+      "information_function": "清晰传递产品第二个核心优势",
+      "required_visual_type": [
+        "产品第二个功能的演示素材",
+        "用户使用产品获得正向反馈的素材"
+      ],
+      "required_motion": [
+        "手持产品旋转展示细节"
+      ],
+      "shot_size": [
+        "近景",
+        "中近景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体高亮蓝字",
+        "position": "屏幕下半1/3处",
+        "semantic_role": "说明第二个卖点",
+        "caption_formula_hint": "「卖点2：XXX 太方便」"
+      },
+      "audio_sync": {
+        "beat_position": "transition_downbeat",
+        "sfx": "正向反馈的欢呼/哇的音效"
+      },
+      "transition_out": "dissolve",
+      "importance": "高",
+      "match_priority": [
+        "使用反馈素材>功能演示>普通展示画面"
+      ],
+      "copy_risk": "低"
+    },
+    {
+      "slot_id": "slot_005",
+      "role": "ending",
+      "duration": 3,
+      "creative_function": "引导用户点击/下单/关注",
+      "information_function": "展示产品全貌+购买引导信息",
+      "required_visual_type": [
+        "产品完整全貌展示素材",
+        "手持产品对着镜头展示素材",
+        "产品链接弹窗适配画面"
+      ],
+      "required_motion": [
+        "产品缓慢移动到屏幕中心位置"
+      ],
+      "shot_size": [
+        "全景",
+        "中景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体醒目橙字",
+        "position": "屏幕底部1/6处",
+        "semantic_role": "引导行动",
+        "caption_formula_hint": "「左下角链接赶紧冲！」"
+      },
+      "audio_sync": {
+        "beat_position": "phrase_release",
+        "sfx": "短促的引导提示音"
+      },
+      "transition_out": "fade_out",
+      "importance": "高",
+      "match_priority": [
+        "手持展示>全貌展示>空产品画面"
+      ],
+      "copy_risk": "低"
+    }
+  ],
+  "caption_style_template": {
+    "subtitle_density": "每段对应1-2行字幕，无长文本",
+    "font_style": "抖音黑体",
+    "keyword_highlight": true,
+    "animation": "字幕从下往上淡入",
+    "safe_area_preference": "避开底部导航栏和顶部状态栏区域"
+  },
+  "transition_style_template": {
+    "main_transition_types": [
+      "zoom_cut",
+      "cut",
+      "whip_pan",
+      "dissolve",
+      "fade_out"
+    ],
+    "usage_rule": "严格按照structural_slots指定的transition_out执行，无额外多余转场",
+    "fallback_transition_types": [
+      "cut"
+    ]
+  },
+  "packaging_style_template": {
+    "stickers": [
+      "无多余贴纸，仅可加对应卖点的小图标贴纸"
+    ],
+    "cover_style": "取hook帧加醒目产品名称大字",
+    "color_tone": "高饱和明亮，突出产品本身色彩",
+    "visual_elements": "无多余遮挡元素，所有元素不覆盖产品主体"
+  },
+  "transfer_rules": {
+    "must_keep": [
+      "5个slot的顺序不变，总时长控制在15秒左右，核心卖点必须完整展示"
+    ],
+    "can_adapt": [
+      "单slot时长可上下浮动0.5秒，字幕文案可根据产品属性调整"
+    ],
+    "must_not_copy": [
+      "不能插入和产品无关的素材，不能超过20秒总时长"
+    ]
+  },
+  "fallback_strategy": [
+    {
+      "problem": "缺少hook对应的冲击画面素材",
+      "solution": "直接使用产品最大特写画面，叠加放大动画替代"
+    },
+    {
+      "problem": "缺少对应卖点的演示素材",
+      "solution": "使用产品细节实拍画面，搭配对应卖点的静态文字贴纸补充"
+    },
+    {
+      "problem": "总素材时长不足15秒",
+      "solution": "将现有合格素材重复慢放1次，补足时长不破坏节奏"
+    }
+  ],
+  "embedding_text": "15秒抖音小红书产品种草展示，快节奏抓眼，突出两个核心卖点，结尾引导转化，适合好物分享带货短视频"
+}

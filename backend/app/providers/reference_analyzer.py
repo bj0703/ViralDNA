@@ -15,74 +15,56 @@ from backend.app.providers.heuristic_video_analysis import HeuristicVideoAnalysi
 
 
 class ReferenceAnalyzerAgentProvider(VideoAnalysisProvider):
-    """Use ReferenceAnalyzerAgent first, then fall back to heuristic analysis."""
+    """Use ReferenceAnalyzerAgent for real video analysis and expose fallback explicitly."""
 
     def __init__(
         self,
         agent: ReferenceAnalyzerAgent,
         heuristic_provider: Optional[HeuristicVideoAnalysisProvider] = None,
+        *,
+        allow_fallback_on_model_error: bool = False,
     ) -> None:
         self.agent = agent
         self.heuristic_provider = heuristic_provider or HeuristicVideoAnalysisProvider()
+        self.allow_fallback_on_model_error = allow_fallback_on_model_error
 
     def analyze(self, upload: SampleUpload) -> ProviderAnalysis:
         heuristic_result = self.heuristic_provider.analyze(upload)
         if not self.agent.is_available():
-            heuristic_result.warnings.append("ReferenceAnalyzerAgent 未配置，已回退到启发式分析。")
-            heuristic_result.raw_outputs["provider"] = "reference-analyzer-fallback"
-            return heuristic_result
+            return self._build_fallback_result(
+                heuristic_result,
+                upload,
+                "ReferenceAnalyzerAgent 未配置，已显式降级到启发式分析。",
+                "agent_not_configured",
+            )
 
         context = self._build_context(upload, heuristic_result)
         try:
             agent_output = self.agent.analyze(context)
             return self._map_agent_output(upload, heuristic_result, agent_output)
         except Exception as exc:
-            heuristic_result.warnings.append(f"ReferenceAnalyzerAgent 失败，已回退到启发式分析：{exc}")
-            heuristic_result.raw_outputs["provider"] = "reference-analyzer-fallback"
-            heuristic_result.raw_outputs["agent_error"] = str(exc)
-            return heuristic_result
+            if not self.allow_fallback_on_model_error:
+                raise RuntimeError(f"ReferenceAnalyzerAgent 真实视频分析失败：{exc}") from exc
+            return self._build_fallback_result(
+                heuristic_result,
+                upload,
+                f"ReferenceAnalyzerAgent 失败，已显式降级到启发式分析：{exc}",
+                "real_video_analysis_failed",
+                agent_error=str(exc),
+            )
 
     def _build_context(self, upload: SampleUpload, heuristic_result: ProviderAnalysis) -> Dict[str, Any]:
-        fallback_paragraphs = [
-            {
-                "type": "hook",
-                "start_time": heuristic_result.hook.start_seconds,
-                "end_time": heuristic_result.hook.end_seconds,
-                "content_summary": heuristic_result.hook.summary,
-            }
-        ]
-        fallback_paragraphs.extend(
-            {
-                "type": "develop",
-                "start_time": section.start_seconds,
-                "end_time": section.end_seconds,
-                "content_summary": section.summary,
-            }
-            for section in heuristic_result.middle_segments
-        )
-        fallback_paragraphs.append(
-            {
-                "type": "cta" if heuristic_result.ending.status == "available" else "develop",
-                "start_time": heuristic_result.ending.start_seconds,
-                "end_time": heuristic_result.ending.end_seconds,
-                "content_summary": heuristic_result.ending.summary,
-            }
-        )
         return {
             "filename": upload.original_filename,
             "storage_path": upload.storage_path,
+            "content_type": upload.content_type,
             "file_size_bytes": os.path.getsize(upload.storage_path),
             "duration_seconds": heuristic_result.duration_seconds,
             "notes": upload.notes,
+            "analysis_instruction": upload.analysis_instruction,
             "heuristic": {
                 "transcript_overview": heuristic_result.transcript_overview,
-                "hook_summary": heuristic_result.hook.summary,
-                "middle_summaries": [section.summary for section in heuristic_result.middle_segments],
-                "ending_summary": heuristic_result.ending.summary,
-                "overall_pace": heuristic_result.overall_pace,
-                "highlight_position_seconds": heuristic_result.highlight_position_seconds,
                 "fallback_type_label": "生活记录",
-                "fallback_paragraphs": fallback_paragraphs,
             },
         }
 
@@ -104,7 +86,21 @@ class ReferenceAnalyzerAgentProvider(VideoAnalysisProvider):
         pace_segments = self._build_pace_segments(rhythm, heuristic_result)
 
         warnings = list(heuristic_result.warnings)
-        warnings.append("ReferenceAnalyzerAgent 已参与样例分析，当前结果基于大模型结构化输出映射。")
+        warnings.append("ReferenceAnalyzerAgent 已参与样例分析，当前结果基于真实视频输入的模型输出映射。")
+
+        provider_trace = {
+            "requested_provider": "reference-analyzer-agent",
+            "actual_provider": "reference-analyzer-agent",
+            "input_modality": "video",
+            "used_real_video_input": True,
+            "used_fallback": False,
+            "fallback_reason": None,
+            "model_configured": True,
+            "analysis_instruction": upload.analysis_instruction,
+            "known_limitations": [
+                "当前结果来自模型视频分析，但仍经过结构化映射和 JSON 修复。",
+            ],
+        }
 
         raw_outputs: Dict[str, Any] = {
             "provider": "reference-analyzer-agent",
@@ -113,6 +109,7 @@ class ReferenceAnalyzerAgentProvider(VideoAnalysisProvider):
             "comparison": self._comparison_summary(heuristic_result, script, rhythm),
             "packaging_and_sound": packaging,
             "migration_suggestion": migration,
+            "analysis_instruction": upload.analysis_instruction,
         }
 
         return ProviderAnalysis(
@@ -138,9 +135,44 @@ class ReferenceAnalyzerAgentProvider(VideoAnalysisProvider):
                 "pace_metrics": "available",
                 "preview": "available",
             },
+            provider_trace=provider_trace,
             warnings=warnings,
             raw_outputs=raw_outputs,
         )
+
+    def _build_fallback_result(
+        self,
+        heuristic_result: ProviderAnalysis,
+        upload: SampleUpload,
+        warning: str,
+        fallback_reason: str,
+        *,
+        agent_error: Optional[str] = None,
+    ) -> ProviderAnalysis:
+        warnings = list(heuristic_result.warnings)
+        warnings.append(warning)
+        raw_outputs = dict(heuristic_result.raw_outputs)
+        raw_outputs["provider"] = "reference-analyzer-fallback"
+        raw_outputs["analysis_instruction"] = upload.analysis_instruction
+        if agent_error:
+            raw_outputs["agent_error"] = agent_error
+
+        heuristic_result.warnings = warnings
+        heuristic_result.raw_outputs = raw_outputs
+        heuristic_result.provider_trace = {
+            "requested_provider": "reference-analyzer-agent",
+            "actual_provider": "heuristic-local",
+            "input_modality": "text_context_only",
+            "used_real_video_input": False,
+            "used_fallback": True,
+            "fallback_reason": fallback_reason,
+            "model_configured": self.agent.is_available(),
+            "analysis_instruction": upload.analysis_instruction,
+            "known_limitations": [
+                "当前结果未完成真实视频分析，已显式降级到启发式分析。",
+            ],
+        }
+        return heuristic_result
 
     def _find_first_paragraph(
         self,
@@ -248,5 +280,5 @@ class ReferenceAnalyzerAgentProvider(VideoAnalysisProvider):
             "agent_script_summary": script.get("summary"),
             "heuristic_overall_pace": heuristic_result.overall_pace,
             "agent_pace_description": rhythm.get("shot_switch_pacing"),
-            "known_risk": "当前 agent 通过 chat/completions 基于上下文推断，不是直接的视频像素流理解。",
+            "known_risk": "当前结果虽然使用视频输入，但仍依赖结构化输出提示词与映射层。",
         }

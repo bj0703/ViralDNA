@@ -1,0 +1,190 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "AssetSegment",
+  "description": "用户上传素材经AssetAnalyzerAgent解析后的标准片段结构，用于和风格模板structural_slots做匹配",
+  "properties": {
+    "time_info": {
+      "type": "object",
+      "description": "片段时间信息",
+      "properties": {
+        "start_timestamp": {
+          "type": "number",
+          "description": "片段在原素材中的起始时间戳，单位秒"
+        },
+        "end_timestamp": {
+          "type": "number",
+          "description": "片段在原素材中的结束时间戳，单位秒"
+        },
+        "duration": {
+          "type": "number",
+          "description": "片段总时长，单位秒"
+        }
+      },
+      "required": [
+        "start_timestamp",
+        "end_timestamp",
+        "duration"
+      ]
+    },
+    "content_summary": {
+      "type": "string",
+      "description": "片段核心内容的自然语言摘要"
+    },
+    "visual_type": {
+      "type": "string",
+      "enum": [
+        "real_scene",
+        "product_closeup",
+        "empty_shot",
+        "person_appearance",
+        "animation_effect",
+        "text_overlay",
+        "drone_shot",
+        "slow_motion"
+      ],
+      "description": "片段所属视觉类型，与风格模板structural_slots的required_visual_type字段对齐"
+    },
+    "main_subjects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "片段中出现的核心主体列表"
+    },
+    "scene_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "片段所属场景标签列表"
+    },
+    "shot_size": {
+      "type": "string",
+      "enum": [
+        "extreme_long_shot",
+        "long_shot",
+        "full_shot",
+        "medium_shot",
+        "close_up",
+        "extreme_close_up"
+      ],
+      "description": "片段景别，与风格模板structural_slots的shot_size字段对齐"
+    },
+    "camera_motion": {
+      "type": "string",
+      "enum": [
+        "static",
+        "push_in",
+        "pull_out",
+        "pan",
+        "tilt",
+        "move",
+        "follow",
+        "rotate"
+      ],
+      "description": "片段镜头运动类型，与风格模板structural_slots的required_motion字段对齐"
+    },
+    "motion_intensity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "画面整体运动剧烈程度评分，0为完全静止，1为最高速运动"
+    },
+    "emotion_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "片段传递的情绪标签列表"
+    },
+    "quality_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "片段综合质量评分，维度包含清晰度、抖动程度、曝光正常度、无水印占比"
+    },
+    "compatible_slots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "该片段可适配的风格模板structural_slots角色名列表"
+    },
+    "transition_adaptability": {
+      "type": "object",
+      "description": "片段末尾的转场适配属性",
+      "properties": {
+        "supported_transition_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "该片段末尾可适配的转场类型列表"
+        },
+        "transition_smoothness_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "片段末尾接转场的流畅度评分"
+        }
+      },
+      "required": [
+        "supported_transition_types",
+        "transition_smoothness_score"
+      ]
+    },
+    "subtitle_safe_zone": {
+      "type": "object",
+      "description": "片段画面内的字幕安全区坐标，按画面宽高比例归一化",
+      "properties": {
+        "x1": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "y1": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "x2": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "y2": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "x1",
+        "y1",
+        "x2",
+        "y2"
+      ]
+    },
+    "embedding_text": {
+      "type": "string",
+      "description": "所有特征拼接生成的纯文本，用于向量检索匹配风格模板的structural_slots需求"
+    }
+  },
+  "required": [
+    "time_info",
+    "content_summary",
+    "visual_type",
+    "main_subjects",
+    "scene_tags",
+    "shot_size",
+    "camera_motion",
+    "motion_intensity",
+    "emotion_tags",
+    "quality_score",
+    "compatible_slots",
+    "transition_adaptability",
+    "subtitle_safe_zone",
+    "embedding_text"
+  ]
+}

@@ -105,6 +105,7 @@ class SampleAnalysisService:
             },
             confidence=provider_result.confidence,
             availability=provider_result.availability,
+            provider_trace=provider_result.provider_trace,
             raw_outputs=provider_result.raw_outputs,
             warnings=provider_result.warnings,
             timeline_segments=self._build_timeline_segments(provider_result),
@@ -191,6 +192,8 @@ class SampleAnalysisService:
             "panels": {
                 "overview": {
                     "transcript_overview": sample.metadata.transcript_overview,
+                    "analysis_instruction": sample.provider_trace.get("analysis_instruction"),
+                    "provider_trace": sample.provider_trace,
                     "warnings": sample.warnings,
                     "availability": sample.availability,
                 },

@@ -1,0 +1,493 @@
+[
+  {
+    "formula_id": "cap_001",
+    "applicable_styles": [
+      "旅行vlog",
+      "治愈系户外",
+      "城市漫游"
+    ],
+    "slot_role": "opening_hook",
+    "caption_type": "opening_caption",
+    "template": "终于来心心念念的{destination}啦",
+    "variables": [
+      "destination"
+    ],
+    "tone": "雀跃随性",
+    "avoid": "冗长抒情、过度修饰",
+    "embedding_text": "旅行vlog开场 到达目的地开心的心情 打卡新地点"
+  },
+  {
+    "formula_id": "cap_002",
+    "applicable_styles": [
+      "旅行vlog",
+      "治愈系户外",
+      "城市漫游"
+    ],
+    "slot_role": "landscape_shot",
+    "caption_type": "scene_caption",
+    "template": "这里的{view_element}也太治愈了吧",
+    "variables": [
+      "view_element"
+    ],
+    "tone": "松弛舒缓",
+    "avoid": "夸张吹捧、不符合画面内容",
+    "embedding_text": "风景特写字幕 描述自然景观 放松氛围感"
+  },
+  {
+    "formula_id": "cap_003",
+    "applicable_styles": [
+      "旅行vlog",
+      "城市漫游",
+      "探店旅行"
+    ],
+    "slot_role": "food_shot",
+    "caption_type": "scene_caption",
+    "template": "本地人才知道的特色{food_name}",
+    "variables": [
+      "food_name"
+    ],
+    "tone": "惊喜安利",
+    "avoid": "虚假推荐、夸大口味",
+    "embedding_text": "旅行美食片段字幕 本地特色小吃 真实体验感"
+  },
+  {
+    "formula_id": "cap_004",
+    "applicable_styles": [
+      "旅行vlog",
+      "户外徒步",
+      "自驾游"
+    ],
+    "slot_role": "activity_shot",
+    "caption_type": "action_caption",
+    "template": "今天挑战了超有意思的{activity}",
+    "variables": [
+      "activity"
+    ],
+    "tone": "活力满满",
+    "avoid": "危险引导、过度渲染刺激感",
+    "embedding_text": "旅行体验项目字幕 户外活动记录 快乐体验"
+  },
+  {
+    "formula_id": "cap_005",
+    "applicable_styles": [
+      "旅行vlog",
+      "穷游攻略",
+      "出行干货"
+    ],
+    "slot_role": "preparation_shot",
+    "caption_type": "info_caption",
+    "template": "出行前一定要提前准备好{item_list}",
+    "variables": [
+      "item_list"
+    ],
+    "tone": "贴心提醒",
+    "avoid": "遗漏关键信息、误导观众",
+    "embedding_text": "旅行准备片段字幕 出行物品清单 实用提示"
+  },
+  {
+    "formula_id": "cap_006",
+    "applicable_styles": [
+      "旅行vlog",
+      "城市漫游",
+      "人文旅行"
+    ],
+    "slot_role": "interaction_shot",
+    "caption_type": "scene_caption",
+    "template": "遇到了超级热情的local{person_role}",
+    "variables": [
+      "person_role"
+    ],
+    "tone": "温暖治愈",
+    "avoid": "刻意编造情节、消费他人",
+    "embedding_text": "旅行人文互动字幕 当地居民友好互动 暖心瞬间"
+  },
+  {
+    "formula_id": "cap_007",
+    "applicable_styles": [
+      "旅行vlog",
+      "短途出游",
+      "周末放松"
+    ],
+    "slot_role": "transport_shot",
+    "caption_type": "action_caption",
+    "template": "坐了{transport_duration}的车终于到啦",
+    "variables": [
+      "transport_duration"
+    ],
+    "tone": "轻松调侃",
+    "avoid": "抱怨负面情绪过重",
+    "embedding_text": "出行交通片段字幕 赶路过程 轻松吐槽"
+  },
+  {
+    "formula_id": "cap_008",
+    "applicable_styles": [
+      "旅行vlog",
+      "全类型旅行记录"
+    ],
+    "slot_role": "fragment_montage",
+    "caption_type": "summary_caption",
+    "template": "这趟旅程的碎片瞬间都好值得纪念",
+    "variables": [],
+    "tone": "感慨柔软",
+    "avoid": "强行煽情、内容空洞",
+    "embedding_text": "旅行混剪字幕 旅程总结 美好回忆记录"
+  },
+  {
+    "formula_id": "cap_009",
+    "applicable_styles": [
+      "口播带货",
+      "好物分享",
+      "测评种草"
+    ],
+    "slot_role": "opening_hook",
+    "caption_type": "opening_caption",
+    "template": "有没有姐妹跟我一样遇到过{pain_point}",
+    "variables": [
+      "pain_point"
+    ],
+    "tone": "共情亲切",
+    "avoid": "制造焦虑、恶意引导",
+    "embedding_text": "带货开场钩子 抛出用户痛点 引发共鸣"
+  },
+  {
+    "formula_id": "cap_010",
+    "applicable_styles": [
+      "口播带货",
+      "好物分享",
+      "测评种草"
+    ],
+    "slot_role": "pain_point_explain",
+    "caption_type": "info_caption",
+    "template": "之前试了好多款都没解决这个问题",
+    "variables": [],
+    "tone": "真实吐槽",
+    "avoid": "贬低其他同类产品",
+    "embedding_text": "带货痛点解释 过往踩坑经历 真实体验"
+  },
+  {
+    "formula_id": "cap_011",
+    "applicable_styles": [
+      "口播带货",
+      "好物分享",
+      "测评种草"
+    ],
+    "slot_role": "product_intro",
+    "caption_type": "info_caption",
+    "template": "直到我挖到了这款宝藏{product_category}",
+    "variables": [
+      "product_category"
+    ],
+    "tone": "惊喜安利",
+    "avoid": "绝对化表述、夸大效果",
+    "embedding_text": "带货产品引入 种草好物 惊喜发现"
+  },
+  {
+    "formula_id": "cap_012",
+    "applicable_styles": [
+      "口播带货",
+      "好物分享",
+      "测评种草"
+    ],
+    "slot_role": "personal_experience",
+    "caption_type": "experience_caption",
+    "template": "我自己用了快{usage_cycle}真的很不错",
+    "variables": [
+      "usage_cycle"
+    ],
+    "tone": "诚恳可信",
+    "avoid": "虚假使用经历、伪造体验",
+    "embedding_text": "带货个人体验分享 长期使用感受 可信度提升"
+  },
+  {
+    "formula_id": "cap_013",
+    "applicable_styles": [
+      "口播带货",
+      "好物分享",
+      "测评种草"
+    ],
+    "slot_role": "feature_intro",
+    "caption_type": "info_caption",
+    "template": "它这个{feature}设计真的太懂用户需求了",
+    "variables": [
+      "feature"
+    ],
+    "tone": "认可夸赞",
+    "avoid": "过度吹捧、不符合实际功能",
+    "embedding_text": "带货产品细节讲解 人性化设计 功能优势"
+  },
+  {
+    "formula_id": "cap_014",
+    "applicable_styles": [
+      "口播带货",
+      "好物分享",
+      "福利直播切片"
+    ],
+    "slot_role": "benefit_notice",
+    "caption_type": "promotion_caption",
+    "template": "今天直播间专属的优惠力度真的很划算",
+    "variables": [],
+    "tone": "激动提醒",
+    "avoid": "虚假优惠、误导价格",
+    "embedding_text": "带货福利通知 专属优惠 性价比提示"
+  },
+  {
+    "formula_id": "cap_015",
+    "applicable_styles": [
+      "口播带货",
+      "好物分享",
+      "测评种草"
+    ],
+    "slot_role": "interaction_guide",
+    "caption_type": "guide_caption",
+    "template": "想要的宝子可以扣1告诉我哦",
+    "variables": [],
+    "tone": "热情互动",
+    "avoid": "强制引导、恶意诱导评论",
+    "embedding_text": "带货互动引导 评论区互动 提升活跃度"
+  },
+  {
+    "formula_id": "cap_016",
+    "applicable_styles": [
+      "口播带货",
+      "好物分享",
+      "测评种草"
+    ],
+    "slot_role": "faq_answer",
+    "caption_type": "info_caption",
+    "template": "很多人问的{common_question}今天统一回复下",
+    "variables": [
+      "common_question"
+    ],
+    "tone": "耐心解答",
+    "avoid": "模糊回答、回避问题",
+    "embedding_text": "带货答疑片段 常见问题解答 消除用户顾虑"
+  },
+  {
+    "formula_id": "cap_017",
+    "applicable_styles": [
+      "产品展示",
+      "开箱视频",
+      "静物种草"
+    ],
+    "slot_role": "product_overview",
+    "caption_type": "scene_caption",
+    "template": "整体看下来这个{product_name}的颜值好高",
+    "variables": [
+      "product_name"
+    ],
+    "tone": "欣赏夸赞",
+    "avoid": "夸大外观、不符合实际画面",
+    "embedding_text": "产品全景展示字幕 外观颜值 整体印象"
+  },
+  {
+    "formula_id": "cap_018",
+    "applicable_styles": [
+      "产品展示",
+      "开箱视频",
+      "细节测评"
+    ],
+    "slot_role": "detail_closeup",
+    "caption_type": "info_caption",
+    "template": "凑近看它的{detail_part}做工真的很精细",
+    "variables": [
+      "detail_part"
+    ],
+    "tone": "客观认可",
+    "avoid": "虚假描述做工质量",
+    "embedding_text": "产品细节特写字幕 工艺细节 品质展示"
+  },
+  {
+    "formula_id": "cap_019",
+    "applicable_styles": [
+      "产品展示",
+      "功能演示",
+      "测评视频"
+    ],
+    "slot_role": "function_demo",
+    "caption_type": "action_caption",
+    "template": "你看它这个{function}操作起来特别简单",
+    "variables": [
+      "function"
+    ],
+    "tone": "直观易懂",
+    "avoid": "演示错误操作、误导用户",
+    "embedding_text": "产品功能演示字幕 操作过程 功能展示"
+  },
+  {
+    "formula_id": "cap_020",
+    "applicable_styles": [
+      "产品展示",
+      "场景种草",
+      "生活好物"
+    ],
+    "slot_role": "usage_scene",
+    "caption_type": "scene_caption",
+    "template": "放在{scene}里使用适配度特别高",
+    "variables": [
+      "scene"
+    ],
+    "tone": "实用安利",
+    "avoid": "编造不存在的使用场景",
+    "embedding_text": "产品使用场景字幕 日常使用场景 适配性展示"
+  },
+  {
+    "formula_id": "cap_021",
+    "applicable_styles": [
+      "产品展示",
+      "对比测评",
+      "好物筛选"
+    ],
+    "slot_role": "contrast_show",
+    "caption_type": "info_caption",
+    "template": "和普通款比它的{advantage}优势很明显",
+    "variables": [
+      "advantage"
+    ],
+    "tone": "客观中立",
+    "avoid": "恶意贬低其他竞品",
+    "embedding_text": "产品对比展示字幕 优势对比 差异化特点"
+  },
+  {
+    "formula_id": "cap_022",
+    "applicable_styles": [
+      "产品展示",
+      "开箱视频",
+      "礼物种草"
+    ],
+    "slot_role": "package_show",
+    "caption_type": "scene_caption",
+    "template": "连外包装的设计都特别有仪式感",
+    "variables": [],
+    "tone": "惊喜满意",
+    "avoid": "过度渲染包装价值",
+    "embedding_text": "产品包装展示字幕 礼盒外观 仪式感细节"
+  },
+  {
+    "formula_id": "cap_023",
+    "applicable_styles": [
+      "教程教学",
+      "技能分享",
+      "知识科普"
+    ],
+    "slot_role": "opening_hook",
+    "caption_type": "opening_caption",
+    "template": "今天30秒教你学会实用的{skill_name}",
+    "variables": [
+      "skill_name"
+    ],
+    "tone": "干脆利落",
+    "avoid": "夸大学习时长、误导观众",
+    "embedding_text": "教程开场字幕 快速学会技能 干货预告"
+  },
+  {
+    "formula_id": "cap_024",
+    "applicable_styles": [
+      "教程教学",
+      "技能分享",
+      "知识科普"
+    ],
+    "slot_role": "preparation_notice",
+    "caption_type": "info_caption",
+    "template": "开始之前你需要提前准备好{tool_list}",
+    "variables": [
+      "tool_list"
+    ],
+    "tone": "清晰明确",
+    "avoid": "遗漏必备工具、误导操作",
+    "embedding_text": "教程前置准备字幕 所需工具清单 提前提示"
+  },
+  {
+    "formula_id": "cap_025",
+    "applicable_styles": [
+      "教程教学",
+      "技能分享",
+      "知识科普"
+    ],
+    "slot_role": "step_one",
+    "caption_type": "step_caption",
+    "template": "第一步先完成{step_one_content}就可以了",
+    "variables": [
+      "step_one_content"
+    ],
+    "tone": "条理清晰",
+    "avoid": "步骤描述模糊、看不懂操作",
+    "embedding_text": "教程第一步字幕 操作步骤指引 清晰易懂"
+  },
+  {
+    "formula_id": "cap_026",
+    "applicable_styles": [
+      "教程教学",
+      "技能分享",
+      "知识科普"
+    ],
+    "slot_role": "step_two",
+    "caption_type": "step_caption",
+    "template": "接下来第二步按照{step_two_content}操作",
+    "variables": [
+      "step_two_content"
+    ],
+    "tone": "条理清晰",
+    "avoid": "跳过关键步骤、省略重要信息",
+    "embedding_text": "教程第二步字幕 操作步骤指引 逻辑连贯"
+  },
+  {
+    "formula_id": "cap_027",
+    "applicable_styles": [
+      "教程教学",
+      "技能分享",
+      "避坑指南"
+    ],
+    "slot_role": "pitfall_reminder",
+    "caption_type": "warning_caption",
+    "template": "这里要注意别犯{common_mistake}不然会出错",
+    "variables": [
+      "common_mistake"
+    ],
+    "tone": "贴心提醒",
+    "avoid": "故意制造难度、危言耸听",
+    "embedding_text": "教程避坑提示字幕 常见错误提醒 减少失误"
+  },
+  {
+    "formula_id": "cap_028",
+    "applicable_styles": [
+      "教程教学",
+      "技能分享",
+      "知识科普"
+    ],
+    "slot_role": "effect_show",
+    "caption_type": "result_caption",
+    "template": "做完之后你就能得到想要的{final_effect}啦",
+    "variables": [
+      "final_effect"
+    ],
+    "tone": "正向鼓励",
+    "avoid": "夸大最终效果、和实际不符",
+    "embedding_text": "教程效果展示字幕 最终成果展示 正向反馈"
+  },
+  {
+    "formula_id": "cap_029",
+    "applicable_styles": [
+      "全类型短视频风格"
+    ],
+    "slot_role": "ending_closure",
+    "caption_type": "ending_caption",
+    "template": "喜欢这期内容的话别忘了点赞收藏哦",
+    "variables": [],
+    "tone": "友好亲切",
+    "avoid": "强制要求互动、引起反感",
+    "embedding_text": "通用结尾字幕 引导点赞收藏 常规互动"
+  },
+  {
+    "formula_id": "cap_030",
+    "applicable_styles": [
+      "全类型短视频风格"
+    ],
+    "slot_role": "ending_closure",
+    "caption_type": "ending_caption",
+    "template": "有什么问题欢迎在评论区留言讨论呀",
+    "variables": [],
+    "tone": "开放友好",
+    "avoid": "诱导负面评论、引战引导",
+    "embedding_text": "通用结尾字幕 引导评论互动 友好交流"
+  }
+]

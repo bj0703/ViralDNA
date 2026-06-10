@@ -1,0 +1,43 @@
+{
+  "score_weights": {
+    "required_visual_type_match": 0.3,
+    "required_motion_match": 0.2,
+    "shot_size_match": 0.2,
+    "duration_deviation_match": 0.15,
+    "information_semantic_match": 0.1,
+    "image_quality_qualification": 0.05
+  },
+  "hard_constraints": [
+    "素材原始时长不得小于对应structural_slot要求时长的70%",
+    "素材不得为全黑/全白无有效内容帧",
+    "素材分辨率不得低于720P",
+    "素材不得包含平台违规内容标签",
+    "若structural_slot的required_visual_type标记为必须含人物，素材中人脸占比不得低于画面5%",
+    "若structural_slot的audio_sync标记为必须带同期声，素材音轨不得为全静音"
+  ],
+  "penalty_rules": [
+    "素材时长超过structural_slot要求时长的200%，总分扣20",
+    "素材运动方向与required_motion要求完全相反，总分扣30",
+    "素材画面无关水印占比超过10%，总分扣15",
+    "素材已被分配给前序3个及以上slot，总分扣25",
+    "素材语义标签与slot的information_function匹配度低于30%，总分扣40"
+  ],
+  "fallback_rules": [
+    "当无匹配度≥60分的素材时，第一优先级放宽shot_size匹配要求，允许同大类景别替换（近景可替换中景，全景可替换远景）",
+    "第二优先级放宽required_motion要求，允许静态素材替换动态运动要求",
+    "第三优先级允许将长素材裁剪至slot要求的最小时长后使用",
+    "第四优先级调用对应类别的通用库存素材填充"
+  ],
+  "reuse_rules": [
+    "同一段原始素材最多可被复用1次",
+    "复用素材不得连续出现在相邻的两个structural_slot中",
+    "全片复用素材总占比不得超过所有素材片段的15%",
+    "通用空镜类素材不受前两条限制，最多可复用3次"
+  ],
+  "transition_compatibility_rules": [
+    "前序slot的transition_out为闪切类型时，当前选中素材的入点第1帧必须清晰无运动模糊",
+    "前序slot的transition_out为淡入类型时，当前选中素材入点亮度不得低于画面平均亮度的30%",
+    "前序slot的transition_out为水平滑动转场时，当前素材画面必须存在明确的水平运动元素匹配滑动方向",
+    "前序slot的transition_out为垂直滑动转场时，当前素材画面必须存在明确的垂直运动元素匹配滑动方向"
+  ]
+}

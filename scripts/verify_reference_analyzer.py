@@ -24,6 +24,7 @@ def main() -> None:
         storage_path=str(sample_path),
         content_type="video/mp4",
         notes="请分析这个真实样例视频的脚本结构、节奏结构、包装与声音，并输出迁移建议。",
+        analysis_instruction="请严格基于视频内容分析脚本结构、节奏结构、包装与声音，并输出迁移建议。",
     )
 
     heuristic_provider = HeuristicVideoAnalysisProvider()
@@ -41,12 +42,14 @@ def main() -> None:
             "hook": heuristic_result.hook.summary,
             "pace": heuristic_result.overall_pace,
             "warnings": heuristic_result.warnings,
+            "provider_trace": heuristic_result.provider_trace,
         },
         "agent": {
             "duration_seconds": agent_result.duration_seconds,
             "hook": agent_result.hook.summary,
             "pace": agent_result.overall_pace,
             "warnings": agent_result.warnings,
+            "provider_trace": agent_result.provider_trace,
             "raw_outputs": agent_result.raw_outputs,
         },
     }

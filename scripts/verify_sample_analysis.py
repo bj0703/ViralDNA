@@ -46,6 +46,7 @@ def main() -> None:
                     storage_path=str(single_file),
                     content_type="video/mp4",
                     notes="开头展示产品卖点，中段说明使用场景，结尾引导关注。",
+                    analysis_instruction="请严格基于视频内容分析脚本结构、节奏结构和结尾 CTA。",
                 )
             ],
         )
@@ -61,6 +62,7 @@ def main() -> None:
                     storage_path=str(multi_file_a),
                     content_type="video/mp4",
                     notes="开头强调价格优势，结尾提示立即下单。",
+                    analysis_instruction="请分析这个视频的脚本结构和节奏结构。",
                 ),
                 SampleUpload(
                     original_filename=multi_file_b.name,
@@ -68,6 +70,7 @@ def main() -> None:
                     storage_path=str(multi_file_b),
                     content_type="video/mp4",
                     notes=None,
+                    analysis_instruction="请判断这个视频是否存在明确 CTA，并说明风险。",
                 ),
             ],
         )

@@ -1,0 +1,298 @@
+{
+  "style_id": "style_tutorial_001",
+  "style_name": "教程教学",
+  "type_label": "教程教学",
+  "aliases": [
+    "干货教程",
+    "实操教学",
+    "短教程"
+  ],
+  "target_duration_range": [
+    28,
+    32
+  ],
+  "aspect_ratio": "9:16",
+  "core_formula": "3秒痛点钩子引入+2秒价值说明+20秒双核心操作演示+5秒收尾引导互动",
+  "suitable_materials": [
+    "第一视角操作实拍",
+    "屏幕录屏素材",
+    "步骤示意图",
+    "前后效果对比素材",
+    "成品展示素材"
+  ],
+  "unsuitable_materials": [
+    "无关联空镜",
+    "模糊失焦素材",
+    "时长超过6秒的无关冗余素材",
+    "带其他平台水印的素材"
+  ],
+  "rhythm_structure": {
+    "overall_pace": "紧凑快节奏，无无效停顿",
+    "avg_shot_duration_seconds": 3,
+    "shot_switch_pacing": "每2-4秒切换一次镜头，操作演示段可适当延长单镜头时长",
+    "highlight_position_ratio": [
+      0.2,
+      0.7
+    ],
+    "pace_changes_description": "开篇钩子快切抓注意力，操作演示段匀速平稳，结尾段稍放缓引导行动"
+  },
+  "structural_slots": [
+    {
+      "slot_id": "slot_hook_001",
+      "role": "开篇钩子",
+      "duration": 3,
+      "creative_function": "3秒戳中用户痛点，留住停留",
+      "information_function": "直接抛出目标用户普遍遇到的高频问题",
+      "required_visual_type": [
+        "错误操作实拍",
+        "问题效果特写",
+        "反差对比画面"
+      ],
+      "required_motion": [
+        "快速放大到问题区域",
+        "手指指向问题点"
+      ],
+      "shot_size": [
+        "特写",
+        "大特写"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体黄字带黑边",
+        "position": "顶部1/6安全区",
+        "semantic_role": "抛出痛点问题",
+        "caption_formula_hint": "你是不是还在XX踩坑？"
+      },
+      "audio_sync": {
+        "beat_position": "first_strong_beat",
+        "sfx": "疑问提示叮咚音"
+      },
+      "transition_out": "cut",
+      "importance": "最高",
+      "match_priority": [
+        "问题特写素材",
+        "反差对比素材",
+        "错误操作素材"
+      ],
+      "copy_risk": "禁止直接搬运其他账号的同款钩子画面"
+    },
+    {
+      "slot_id": "slot_context_002",
+      "role": "背景说明",
+      "duration": 4,
+      "creative_function": "快速建立用户预期，说明教程价值",
+      "information_function": "告知用户本教程可解决的问题、耗时、最终收益",
+      "required_visual_type": [
+        "教程主题文字板",
+        "前后效果对比图",
+        "教程封面展示"
+      ],
+      "required_motion": [
+        "画面缓慢平移",
+        "文字淡入弹出"
+      ],
+      "shot_size": [
+        "中景",
+        "全屏画面"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "常规白字带黑边",
+        "position": "中上部安全区",
+        "semantic_role": "说明教程收益",
+        "caption_formula_hint": "今天30秒教你搞定XX"
+      },
+      "audio_sync": {
+        "beat_position": "bar_change",
+        "sfx": "轻量提示音"
+      },
+      "transition_out": "whip_pan",
+      "importance": "高",
+      "match_priority": [
+        "效果对比图",
+        "主题文字板",
+        "封面展示"
+      ],
+      "copy_risk": "无特殊版权风险"
+    },
+    {
+      "slot_id": "slot_highlight_01",
+      "role": "核心步骤1",
+      "duration": 10,
+      "creative_function": "清晰展示第一个关键可落地操作",
+      "information_function": "拆解第一个实操动作的所有细节要点",
+      "required_visual_type": [
+        "第一视角操作实拍",
+        "录屏操作画面",
+        "步骤标注示意图"
+      ],
+      "required_motion": [
+        "跟随操作动作移动镜头",
+        "手指指向操作区域"
+      ],
+      "shot_size": [
+        "近景",
+        "特写"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "常规白字带黑边",
+        "position": "底部1/5安全区",
+        "semantic_role": "标注操作要点",
+        "caption_formula_hint": "第一步：XX操作"
+      },
+      "audio_sync": {
+        "beat_position": "transition_downbeat",
+        "sfx": "操作点击音效"
+      },
+      "transition_out": "zoom_cut",
+      "importance": "最高",
+      "match_priority": [
+        "第一视角操作实拍",
+        "录屏画面",
+        "步骤示意图"
+      ],
+      "copy_risk": "禁止搬运其他账号的同款操作演示画面"
+    },
+    {
+      "slot_id": "slot_highlight_02",
+      "role": "核心步骤2",
+      "duration": 10,
+      "creative_function": "清晰展示第二个关键可落地操作",
+      "information_function": "拆解第二个实操动作的所有细节要点",
+      "required_visual_type": [
+        "第一视角操作实拍",
+        "录屏操作画面",
+        "步骤标注示意图"
+      ],
+      "required_motion": [
+        "跟随操作动作移动镜头",
+        "手指指向操作区域"
+      ],
+      "shot_size": [
+        "近景",
+        "特写"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "常规白字带黑边",
+        "position": "底部1/5安全区",
+        "semantic_role": "标注操作要点",
+        "caption_formula_hint": "第二步：XX操作"
+      },
+      "audio_sync": {
+        "beat_position": "transition_downbeat",
+        "sfx": "操作完成提示音"
+      },
+      "transition_out": "cut",
+      "importance": "最高",
+      "match_priority": [
+        "第一视角操作实拍",
+        "录屏画面",
+        "步骤示意图"
+      ],
+      "copy_risk": "禁止搬运其他账号的同款操作演示画面"
+    },
+    {
+      "slot_id": "slot_ending_005",
+      "role": "收尾引导",
+      "duration": 3,
+      "creative_function": "强化用户记忆，引导互动行为",
+      "information_function": "展示最终成品效果，引导点赞收藏关注",
+      "required_visual_type": [
+        "最终成品效果展示",
+        "引导关注文字板"
+      ],
+      "required_motion": [
+        "画面拉远展示完整效果",
+        "箭头指向关注按钮位置"
+      ],
+      "shot_size": [
+        "全景",
+        "中景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体白字",
+        "position": "底部1/6安全区",
+        "semantic_role": "引导用户行动",
+        "caption_formula_hint": "学会了记得点赞收藏哦"
+      },
+      "audio_sync": {
+        "beat_position": "phrase_release",
+        "sfx": "轻快收尾音效"
+      },
+      "transition_out": "fade_out",
+      "importance": "高",
+      "match_priority": [
+        "成品效果展示",
+        "引导文字板"
+      ],
+      "copy_risk": "无特殊版权风险"
+    }
+  ],
+  "caption_style_template": {
+    "subtitle_density": "每3-5秒出现1条字幕，单条字幕字数不超过15字",
+    "font_style": "抖音默认黑体",
+    "keyword_highlight": true,
+    "animation": "打字机逐字弹出",
+    "safe_area_preference": "核心字幕全部放在中间70%区域，避开上下1/6的系统UI区域"
+  },
+  "transition_style_template": {
+    "main_transition_types": [
+      "cut",
+      "whip_pan",
+      "zoom_cut"
+    ],
+    "usage_rule": "钩子转背景用甩动转场，步骤1转步骤2用放大切转场，其余节点优先用硬切",
+    "fallback_transition_types": [
+      "blur",
+      "dissolve"
+    ]
+  },
+  "packaging_style_template": {
+    "stickers": [
+      "步骤序号贴纸",
+      "重点标记箭头贴纸"
+    ],
+    "cover_style": "大字痛点标题+核心步骤缩略图",
+    "color_tone": "明亮高对比度，无过度滤镜",
+    "visual_elements": "全程保留操作区域高亮标记"
+  },
+  "transfer_rules": {
+    "must_keep": [
+      "步骤逻辑顺序",
+      "核心操作演示内容",
+      "开篇痛点钩子"
+    ],
+    "can_adapt": [
+      "字幕样式",
+      "背景音乐",
+      "贴纸摆放位置"
+    ],
+    "must_not_copy": [
+      "原视频水印",
+      "原视频专属logo",
+      "无关的个人出镜画面"
+    ]
+  },
+  "fallback_strategy": [
+    {
+      "problem": "缺少钩子痛点类素材",
+      "solution": "直接用动态文字动画板展示痛点问题，替换原钩子画面补足3秒时长"
+    },
+    {
+      "problem": "某一个核心步骤素材时长不足",
+      "solution": "重复播放该步骤的关键操作帧2次，补足对应slot要求的时长"
+    },
+    {
+      "problem": "无对应指定转场的适配条件",
+      "solution": "全部转场统一替换为硬切cut，保证剪辑流畅度"
+    },
+    {
+      "problem": "无成品效果展示素材",
+      "solution": "直接弹出文字板展示操作完成后的收益说明，替换原收尾画面"
+    }
+  ],
+  "embedding_text": "抖音小红书30秒9:16短教程风格，痛点前置，快节奏干货输出，两步核心实操演示，结尾引导点赞收藏，适配知识类、技能类、生活技巧类内容剪辑"
+}

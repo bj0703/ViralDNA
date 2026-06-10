@@ -1,0 +1,291 @@
+{
+  "style_id": "style_vlog_001",
+  "style_name": "vlog旅拍",
+  "type_label": "vlog旅拍",
+  "aliases": [
+    "旅行日常vlog",
+    "短途出游记录",
+    "城市漫游vlog"
+  ],
+  "target_duration_range": [
+    18,
+    22
+  ],
+  "aspect_ratio": "9:16",
+  "core_formula": "3秒抓眼hook + 2秒场景交代 + 6秒第一高光展示 + 6秒第二高光展示 + 3秒互动收尾",
+  "suitable_materials": [
+    "第一视角走路画面",
+    "景点标志性打卡物",
+    "美食特写",
+    "沿途自然风景",
+    "人物鲜活笑脸自拍",
+    "城市地标画面"
+  ],
+  "unsuitable_materials": [
+    "严重模糊抖动废片",
+    "无关室内办公画面",
+    "过曝/全黑低质量画面",
+    "非本次出游的历史无关素材"
+  ],
+  "rhythm_structure": {
+    "overall_pace": "轻快紧凑",
+    "avg_shot_duration_seconds": 2.5,
+    "shot_switch_pacing": "每2-3秒完成一次镜头切换",
+    "highlight_position_ratio": [
+      0.25,
+      0.7
+    ],
+    "pace_changes_description": "开头快切抓注意力，中间高光部分运镜放缓突出细节，结尾渐慢收束情绪"
+  },
+  "structural_slots": [
+    {
+      "slot_id": "slot_hook",
+      "role": "hook",
+      "duration": 3,
+      "creative_function": "3秒快速抓住刷流用户注意力",
+      "information_function": "第一时间传递正在出游的惊喜感",
+      "required_visual_type": [
+        "第一视角快速扫过的景点入口画面",
+        "人物突然指向镜头外风景的特写"
+      ],
+      "required_motion": [
+        "快速横移",
+        "突然定格"
+      ],
+      "shot_size": [
+        "近景",
+        "中景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体圆润无衬线",
+        "position": "顶部1/6安全区域",
+        "semantic_role": "抛出出游惊喜感钩子",
+        "caption_formula_hint": "我找到XX的神仙打卡点了！"
+      },
+      "audio_sync": {
+        "beat_position": "first_strong_beat",
+        "sfx": "短促惊喜哇哦音效"
+      },
+      "transition_out": "whip_pan",
+      "importance": "最高",
+      "match_priority": [
+        "画面动态感",
+        "色彩饱和度",
+        "人物表情鲜活度"
+      ],
+      "copy_risk": "低"
+    },
+    {
+      "slot_id": "slot_context",
+      "role": "context",
+      "duration": 2,
+      "creative_function": "快速铺垫当前所处场景",
+      "information_function": "明确告知用户所在的城市/景点名称",
+      "required_visual_type": [
+        "景点路牌画面",
+        "城市地标远景"
+      ],
+      "required_motion": [
+        "缓慢推进"
+      ],
+      "shot_size": [
+        "全景",
+        "中景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "常规无衬线",
+        "position": "底部1/5安全区域",
+        "semantic_role": "交代地理位置信息",
+        "caption_formula_hint": "📍XX市/XX景区"
+      },
+      "audio_sync": {
+        "beat_position": "bar_change",
+        "sfx": "轻脆打卡提示音"
+      },
+      "transition_out": "cut",
+      "importance": "中高",
+      "match_priority": [
+        "地标辨识度",
+        "文字清晰度"
+      ],
+      "copy_risk": "极低"
+    },
+    {
+      "slot_id": "slot_highlight_01",
+      "role": "highlight_01",
+      "duration": 6,
+      "creative_function": "展示第一个核心打卡亮点",
+      "information_function": "输出第一个值得前往的核心理由",
+      "required_visual_type": [
+        "特色美食特写",
+        "小众观景台风景",
+        "趣味游玩项目画面"
+      ],
+      "required_motion": [
+        "环绕运镜",
+        "慢动作"
+      ],
+      "shot_size": [
+        "特写",
+        "远景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "常规无衬线",
+        "position": "底部1/5安全区域",
+        "semantic_role": "介绍亮点细节",
+        "caption_formula_hint": "这个XX真的绝了！"
+      },
+      "audio_sync": {
+        "beat_position": "transition_downbeat",
+        "sfx": "对应场景白噪音（海浪/风声/食物滋滋声）"
+      },
+      "transition_out": "zoom_cut",
+      "importance": "高",
+      "match_priority": [
+        "画面美感",
+        "内容独特性"
+      ],
+      "copy_risk": "低"
+    },
+    {
+      "slot_id": "slot_highlight_02",
+      "role": "highlight_02",
+      "duration": 6,
+      "creative_function": "展示第二个反差感惊喜亮点",
+      "information_function": "补充第二个超出预期的出游收获",
+      "required_visual_type": [
+        "日落延时画面",
+        "可爱路人互动画面",
+        "意外撞见的治愈场景"
+      ],
+      "required_motion": [
+        "固定延时",
+        "轻微晃动手持感"
+      ],
+      "shot_size": [
+        "全景",
+        "近景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "常规无衬线",
+        "position": "底部1/5安全区域",
+        "semantic_role": "分享意外出游收获",
+        "caption_formula_hint": "没想到还碰到了XX"
+      },
+      "audio_sync": {
+        "beat_position": "phrase_release",
+        "sfx": "轻缓风声"
+      },
+      "transition_out": "blur",
+      "importance": "高",
+      "match_priority": [
+        "情绪感染力",
+        "画面稀缺性"
+      ],
+      "copy_risk": "低"
+    },
+    {
+      "slot_id": "slot_ending",
+      "role": "ending",
+      "duration": 3,
+      "creative_function": "引导用户点赞收藏互动",
+      "information_function": "给出出游小提示/互动指令",
+      "required_visual_type": [
+        "人物对着镜头比耶画面",
+        "返程路上的车窗风景"
+      ],
+      "required_motion": [
+        "缓慢拉远"
+      ],
+      "shot_size": [
+        "中景",
+        "全景"
+      ],
+      "caption_requirement": {
+        "need_caption": true,
+        "style": "粗体圆润无衬线",
+        "position": "底部1/6安全区域",
+        "semantic_role": "引导用户互动",
+        "caption_formula_hint": "快@你最想一起去的人！"
+      },
+      "audio_sync": {
+        "beat_position": "weak_beat",
+        "sfx": "轻响收尾提示音"
+      },
+      "transition_out": "fade_out",
+      "importance": "中",
+      "match_priority": [
+        "人物表情自然度",
+        "画面氛围感"
+      ],
+      "copy_risk": "极低"
+    }
+  ],
+  "caption_style_template": {
+    "subtitle_density": "每2秒1条",
+    "font_style": "圆润无衬线",
+    "keyword_highlight": true,
+    "animation": "淡入淡出",
+    "safe_area_preference": "避开画面中间核心风景区域"
+  },
+  "transition_style_template": {
+    "main_transition_types": [
+      "whip_pan",
+      "cut",
+      "zoom_cut",
+      "blur",
+      "fade_out"
+    ],
+    "usage_rule": "转场严格对齐音乐节拍点，避免无意义转场堆砌",
+    "fallback_transition_types": [
+      "dissolve"
+    ]
+  },
+  "packaging_style_template": {
+    "stickers": [
+      "小箭头定位贴纸",
+      "天气小图标贴纸"
+    ],
+    "cover_style": "人物笑脸+景点大字标题",
+    "color_tone": "高饱和暖调，轻微青橙滤镜",
+    "visual_elements": "无多余遮挡元素，保留画面原生风景质感"
+  },
+  "transfer_rules": {
+    "must_keep": [
+      "5个slot的时长分配逻辑",
+      "音乐节拍对齐规则",
+      "字幕位置安全区要求"
+    ],
+    "can_adapt": [
+      "单slot时长±1秒浮动",
+      "转场类型替换为同等级可选类型"
+    ],
+    "must_not_copy": [
+      "原视频的具体画面内容",
+      "原视频的专属台词文案"
+    ]
+  },
+  "fallback_strategy": [
+    {
+      "problem": "hook类素材不足",
+      "solution": "直接选用饱和度最高的风景特写替代，保留3秒时长"
+    },
+    {
+      "problem": "仅能匹配到1个高光素材",
+      "solution": "将剩余时长拆分给唯一高光，延长至10秒，删除第二个高光slot"
+    },
+    {
+      "problem": "总素材时长不足18秒",
+      "solution": "末尾直接用fade_out提前收尾，总时长不低于15秒"
+    },
+    {
+      "problem": "无对应匹配的音效素材",
+      "solution": "直接保留背景音乐对应段落，不额外叠加音效"
+    }
+  ],
+  "embedding_text": "20秒抖音小红书9:16竖版vlog旅拍轻快出游打卡短视频模板，抓眼开头快速交代地点，双高光展示旅行亮点，结尾引导互动，适配短途游城市漫游日常记录"
+}
