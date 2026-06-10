@@ -124,6 +124,41 @@ REDIS_URL=redis://localhost:6379/0
 - **Redis 不可用**：后端自动检测，无缝降级到本地内存模式，所有接口正常工作
 - **ARK API Key 缺失或请求失败**：后端自动回退本地 heuristic 分析，优先走真实 LLM，失败兜底规则判断
 
+
+## Docker 一键部署（推荐）
+
+如果你已经安装了 Docker 和 Docker Compose，可以跳过以上所有步骤，一键启动整个环境：
+
+### 1. 构建并启动
+
+```powershell
+# 进入项目根目录
+cd d:\ai coding\emo_transfer
+
+# 设置 API Key（或在 .env 文件中配置）
+$env:ARK_API_KEY="你的豆包API_Key"
+
+# 第一次启动会构建镜像（可能需要 5-10 分钟）
+docker-compose up --build -d
+```
+
+### 2. 日常使用
+
+```powershell
+# 启动（已构建过，几秒即可完成）
+docker-compose up -d
+
+# 查看实时日志
+docker-compose logs -f app
+
+# 停止
+docker-compose down
+
+# 重启
+docker-compose restart
+```
+
+
 ## 安装依赖
 
 ### 1. 后端依赖
