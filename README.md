@@ -133,7 +133,7 @@ REDIS_URL=redis://localhost:6379/0
 
 ```powershell
 # 进入项目根目录
-cd d:\ai coding\emo_transfer
+cd <项目目录>
 
 # 设置 API Key（或在 .env 文件中配置）
 $env:ARK_API_KEY="你的豆包API_Key"
